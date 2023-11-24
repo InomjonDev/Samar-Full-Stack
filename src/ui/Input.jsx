@@ -2,16 +2,16 @@ import { useState } from "react";
 
 function Input({ label, state, setState, type = "text" }) {
 	return (
-		<div class="form-floating mb-2">
+		<div className="form-floating mb-2">
 			<input
 				type={type}
-				class="form-control"
+				className="form-control"
 				id="floatingInput"
 				placeholder={label}
 				value={state}
 				onChange={e => setState(e.target.value)}
 			/>
-			<label for="floatingInput">{label}</label>
+			<label htmlFor="floatingInput">{label}</label>
 		</div>
 	);
 }
