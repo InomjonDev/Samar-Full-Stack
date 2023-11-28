@@ -2,7 +2,7 @@ import { useState } from "react";
 import { registerLogo } from "../constants";
 import { Input } from "../ui";
 import { useDispatch, useSelector } from "react-redux";
-import { userStart } from "../slice/auth";
+import { loginUserStart } from "../slice/auth";
 
 // const initialState = {
 // 	username: "",
@@ -19,7 +19,7 @@ function Login() {
 
 	const loginHandler = e => {
 		e.preventDefault();
-		dispatch(userStart());
+		dispatch(loginUserStart());
 	};
 
 	return (
