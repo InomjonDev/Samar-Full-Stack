@@ -8,7 +8,7 @@ export const setItem = (key, data) => {
 
 export const getItem = key => {
 	try {
-		localStorage.getItem(key);
+		return localStorage.getItem(key);
 	} catch (error) {
 		console.log(error);
 	}

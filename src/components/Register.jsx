@@ -45,7 +45,7 @@ function Register() {
 
 	useEffect(() => {
 		if (loggedIn) navigate("/");
-	}, []);
+	}, [loggedIn]);
 
 	return (
 		<div className="text-center mt-5">
