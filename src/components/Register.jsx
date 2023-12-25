@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { registerLogo } from "../constants";
 import { Input } from "../ui";
 import { useDispatch, useSelector } from "react-redux";
 import { signUserFailuer, signUserStart, signUserSuccess } from "../slice/auth";
 import AuthService from "../service/auth";
 import { ValidationError } from "./";
+import { useNavigate } from "react-router-dom";
 
 // const initialState = {
 // 	username: "",
@@ -19,8 +20,8 @@ function Register() {
 	const [password, setPassword] = useState("");
 
 	const dispatch = useDispatch(state => state.auth);
-	const { isLoading } = useSelector(state => state.auth);
-
+	const { isLoading, loggedIn } = useSelector(state => state.auth);
+	const navigate = useNavigate();
 	const registerHandler = async e => {
 		e.preventDefault();
 		dispatch(signUserStart());
@@ -36,10 +37,15 @@ function Register() {
 			console.log(response);
 			console.log(user);
 			dispatch(signUserSuccess(response.user));
+			navigate("/");
 		} catch (error) {
 			dispatch(signUserFailuer(error.response.data.errors));
 		}
 	};
+
+	useEffect(() => {
+		if (loggedIn) navigate("/");
+	}, []);
 
 	return (
 		<div className="text-center mt-5">
