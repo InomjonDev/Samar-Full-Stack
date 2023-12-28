@@ -24,10 +24,14 @@ export const authSlice = createSlice({
 		signUserFailuer: (state, { payload, type }) => {
 			state.isLoading = false;
 			state.error = payload;
+		},
+		logoutSlice: state => {
+			state.user = null;
+			state.loggedIn = false;
 		}
 	}
 });
 
-export const { signUserStart, signUserSuccess, signUserFailuer } =
+export const { signUserStart, signUserSuccess, signUserFailuer, logoutSlice } =
 	authSlice.actions;
 export default authSlice.reducer;
