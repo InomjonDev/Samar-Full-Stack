@@ -1,5 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import { Login, Main, Register, Navbar, ArticleDetail } from "./components";
+import {
+	Login,
+	Main,
+	Register,
+	Navbar,
+	ArticleDetail,
+	CreateArticle
+} from "./components";
 import { useEffect } from "react";
 import AuthService from "./service/auth";
 import { useDispatch } from "react-redux";
@@ -43,6 +50,7 @@ function App() {
 					<Route path="/login" element={<Login />} />
 					<Route path="/register" element={<Register />} />
 					<Route path="/article/:slug" element={<ArticleDetail />} />
+					<Route path="/create-article" element={<CreateArticle />} />
 				</Routes>
 			</div>
 		</div>
