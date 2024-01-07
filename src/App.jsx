@@ -17,6 +17,7 @@ import { getArticlesStart, getArticlesSuccess } from "./slice/article";
 
 function App() {
 	const dispatch = useDispatch();
+
 	const getUser = async () => {
 		try {
 			const response = await AuthService.getUser();
@@ -39,8 +40,8 @@ function App() {
 	useEffect(() => {
 		const token = getItem("token");
 		if (token) getUser();
-		getArticles();
 	}, []);
+
 	return (
 		<div>
 			<Navbar />
